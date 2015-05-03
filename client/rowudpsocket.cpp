@@ -87,31 +87,9 @@ uint16_t udp4_checksum (struct ip iphdr, struct row_udphdr udphdr, uint8_t *payl
     return checksum ((uint16_t *) buf, chksumlen);
 }
 
-
-
-
 // Source IP, source port, target IP, target port from the command line arguments
 int rowsocket()
 {
-    /*
-            socket (AF_INET, SOCK_RAW, IPPROTO_TCP);
-            The above function call creates a raw socket of protocol TCP.
-            This means that we have to provide the TCP header along with the data.
-            The kernel or the network stack of Linux shall provide the IP header.
-
-            If we want to provide the IP header as well then there are 2 ways of doing this
-            (1) socket (AF_INET, SOCK_RAW, IPPROTO_RAW);
-            Use protocol IPPROTO_RAW - This will allow to specify the IP header and everything that is contained in the packet.
-            (2) Set the IP_HDRINCL socket option to 1 - This is same as the above. Just another way of doing.
-            int s = socket (AF_INET, SOCK_RAW, IPPROTO_TCP);
-            int one = 1;
-            const int *val = &one;
-            if (setsockopt (s, IPPROTO_IP, IP_HDRINCL, val, sizeof (one)) < 0)
-            {
-                printf ("Error setting IP_HDRINCL. Error number : %d . Error message : %s \n" , errno , strerror(errno));
-                exit(0);
-            }
-    */
     return socket (AF_INET, SOCK_RAW, IPPROTO_RAW);
 }
 

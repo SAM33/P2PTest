@@ -64,46 +64,6 @@ int passive_p2pmain(int sock_fd , struct sockaddr_in serveraddr , struct sockadd
     }
 }
 
-/*
-void help()
-{
-    struct sockaddr_in srv,cln;
-    // inet_addr和inet_network函數都是用於將字符串形式轉換為整數形式用的，兩者區別很小，inet_addr返回的整數形式是網絡字節序，而inet_network返回的整數形式是主機字節序。
-    // inet_aton函數和上面這倆小子的區別就是在於他認為255.255.255.255是有效的，他不會冤枉這個看似特殊的IP地址，inet_aton函數返回的是網絡字節序的IP地址。
-    bzero ((char *)&srv, sizeof(srv));
-    srv.sin_family = AF_INET;
-    srv.sin_addr.s_addr = inet_addr(SERV_ADDRESS);
-    srv.sin_port = htons(SERV_PORT);
-    bzero ((char *)&cln, sizeof(cln));
-    cln.sin_family = AF_INET;
-    cln.sin_addr.s_addr = inet_addr("80.10.100.75");
-    cln.sin_port = htons(50000);
-    socklen_t  srvsizet = sizeof(srv);
-    socklen_t  clnsizet = sizeof(cln);
-
-    int sd = rowsocket();
-    if(sd < 0)
-    {
-        Error("socket() error");
-    }
-    else
-    {
-        printf("socket() ok\n");
-    }
-    char data[20];
-    memset(data,0x0,20);
-    sprintf(data,"%s","Hello Socket World!\n");
-    int s = rowudpsendto(sd,data,strlen(data),0,&cln,clnsizet,&srv,srvsizet);
-    if(s<0)
-    {
-        Error("sendto() failed ");
-    }
-    else
-    {
-        printf("sendto(%d) ok\n",s);
-    }
-}*/
-
 int main(int argc , char * args[])
 {
     char SelfUserID[20];
