@@ -18,5 +18,5 @@ cd client
 <br/>
 make
 <br/>
-./main_release <Server IP> <Server PORT> <Mode:A or P>
+./main_release [Server IP] [Server PORT] [Mode : A or P]
 <br/>
